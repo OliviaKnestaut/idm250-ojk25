@@ -50,7 +50,7 @@
         <div class="container-fluid justify-content-center">
             <picture>
                     <source
-                    media="(min-width: 576px)"
+                    media="(min-width: 575px)"
                     srcset="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/icons/upper-absract-full-row.svg">
 
                     <img class="img-fluid abstract-img"

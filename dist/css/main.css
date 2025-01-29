@@ -78,7 +78,7 @@ html{
 
 body{
     background-color: var(--background);
-    padding-top: 46px;
+    padding-top: 54px;
 }
 
 picture, .abstract-img{
@@ -170,7 +170,7 @@ h6{
 @media screen and (max-width: 782px) {
     
     body{
-        padding-top: 60px;
+        padding-top: 50px;
     }
 
 }
@@ -180,7 +180,7 @@ h6{
 
     /*GENERAL*/
     body{
-        padding-top: 0;
+        padding-top: 0 !important;
     }
 
     h1{

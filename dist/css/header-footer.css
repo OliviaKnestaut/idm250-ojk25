@@ -17,7 +17,7 @@ nav a{
 
 .navbar {
     position: fixed;
-    top: 32px;
+    top: 0;
     width: 100%;
     padding: 0 1rem;
     background-color: var(--background) !important;
@@ -97,7 +97,7 @@ nav a{
 @media screen and (max-width: 782px) {
     
     .navbar {
-        top: 46px;
+        top: 0;
     }
 
     .nav-link{
@@ -139,7 +139,7 @@ nav a{
         padding: 0.5rem 1rem;
         background-color: var(--background) !important;
         position: sticky;
-        top: 0;
+        top: 0 !important;
     }
 
     /*FOOTER*/
