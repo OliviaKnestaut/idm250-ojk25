@@ -1,3 +1,5 @@
+//Adjusts menu location based on wpAdminBar
+// Adjusts menu location based on wpAdminBar
 window.addEventListener("load", function () {
     var wpAdminBar = document.getElementById("wpadminbar");
     var navbar = document.querySelector(".navbar");
@@ -5,35 +7,69 @@ window.addEventListener("load", function () {
 
     function updateNavbarPosition() {
         if (wpAdminBar && navbar) {
-            var topOffset = window.innerWidth <= 782 ? 46 : 32;
+            var topOffset = window.innerWidth <= 575 ? 0 : (window.innerWidth <= 782 ? 45 : 32);
             var bodyOffset = window.innerWidth <= 782 ? 52 : 54;
             navbar.style.top = topOffset + "px";
             body.style.paddingTop = bodyOffset + "px";
         }
     }
 
+    // Function to switch navbar to fixed and adjust body padding after scrolling 46px on small screens
+    function handleScroll() {
+        if (window.innerWidth <= 575) {
+            if (window.scrollY > 46) {
+                navbar.style.position = "fixed";
+                navbar.style.top = "0"; 
+                body.style.paddingTop = "62px"; // Apply padding after scrolling
+            } else {
+                navbar.style.position = "sticky";
+                navbar.style.top = "0";
+                body.style.paddingTop = "0"; // Remove padding before scrolling 46px
+            }
+        } else {
+            // Reset to original position and padding for larger screens
+            navbar.style.position = "fixed"; 
+            body.style.paddingTop = "54px"; // Default padding for larger screens
+        }
+    }
+
+    // Initial setup
     updateNavbarPosition();
-    window.addEventListener("resize", updateNavbarPosition);
+    handleScroll();
+
+    // Update on window resize and scroll
+    window.addEventListener("resize", function() {
+        updateNavbarPosition();
+        handleScroll(); 
+    });
+
+    window.addEventListener("scroll", handleScroll);
 });
 
-// Handle dropdown for mobile and desktop
-const dropdownArrow = document.querySelector('.arrow');
-const dropdownContent = document.querySelector('.dropdown-content');
 
-dropdownArrow.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent event from bubbling up to other elements
-    const dropdown = e.target.closest('.dropdown');
-    dropdown.classList.toggle('active');
-    const isOpen = dropdown.getAttribute('aria-expanded') === 'true';
-    dropdown.setAttribute('aria-expanded', !isOpen);
+
+//Mobile Nav Sub Menu
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".nav-item.dropdown");
+    const arrow = dropdown.querySelector(".dropdown-arrow");
+    const menu = dropdown.querySelector(".dropdown-menu");
+
+    arrow.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent default navigation
+        e.stopPropagation(); // Prevent event bubbling
+
+        // Toggle dropdown
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
     });
 
-// Redirect for mobile when clicking Case Studies
-document.querySelector('.case-studies').addEventListener('click', (e) => {
-    if (window.innerWidth <= 782) {
-        window.location.href = 'index.html';
-    } else {
-      e.preventDefault(); // Prevent default action only on desktop
-    }
+    // Close dropdown when clicking anywhere else
+    document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+            menu.style.display = "none";
+        }
     });
-
+});

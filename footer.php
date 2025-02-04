@@ -9,26 +9,29 @@
             alt="random colorful absract shapes">
         </picture>
         <div class="row align-items-center justify-content-center footer bg-pink">
-            <div class="row align-items-center text-color-light">
-                <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/icons/location_icon.svg" alt="location pin icon">
-                <p>Philadelphia, PA</p>
-            </div>
-            <a class="row align-items-center text-color-light footer-link" href="mailto:olivia.knestaut@gmail.com">
-                <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/icons/mail_icon.svg" alt="email icon">
-                <p>olivia.knestaut@gmail.com</p>
-            </a>
-            <a href="https://www.instagram.com/ollywhelmed/" target="_blank" class="row align-items-center text-color-light footer-link">
-                <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/icons/instagram_icon.svg" alt="instagram icon">
-                <p>@ollywhelmed</p>
-            </a>
-            <a href="https://www.linkedin.com/in/oliviaknestaut/" target="_blank" class="row align-items-center text-color-light footer-link">
-                <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/icons/linkedin_icon.svg" alt="linkedin icon">
-                <p>oliviaknestaut</p>
-            </a>
-            <a href="https://github.com/OliviaKnestaut" target="_blank" class="row align-items-center text-color-light footer-link">
-                <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/icons/github_icon.svg" alt="github icon">
-                <p>OliviaKnestaut</p>
-            </a>
+
+            <?php $footer_menu = get_theme_menu('footer-menu'); ?>
+            <?php if ($footer_menu): ?>
+                <?php foreach ($footer_menu as $item): 
+                    $class = !empty($item->classes) ? $item->classes : "";
+                    $target = !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : ''; 
+                    $menu_image_url = wp_get_attachment_image_url($item->thumbnail_id, 'full');
+                ?>
+
+                <a class="row align-items-center text-color-light footer-link <?php echo esc_attr($class); ?>" href="<?php echo esc_url($item->url); ?>" target="_blank">
+                    <!-- Render image if exists -->
+                    <?php if (!empty($menu_image_url)): ?>
+                        <img src="<?php echo $menu_image_url; ?>" 
+                                class="icon menu-image menu-image-title-before" 
+                                alt="<?php echo esc_attr($item->title . ' icon'); ?>">
+                    <?php endif; ?>
+                    <p><? echo esc_html($item->title); ?></p>
+                </a>
+
+                
+                <?php endforeach; ?>
+            <?php endif; ?>
+
             <div class="row align-items-center text-color-light">
                 <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
             </div>

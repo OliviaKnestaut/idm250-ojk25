@@ -25,45 +25,10 @@ html{
     --rhythm: 24px;
 }
 
-.color-orange{
-    color: var(--orange) !important;
-}
-.color-blue{
-    color: var(--blue) !important;
-}
-.color-purple{
-    color: var(--purple) !important;
-}
-.color-pink{
-    color: var(--pink) !important;
-}
-.color-magenta{
-    color: var(--magenta) !important;
-}
-.color-green{
-    color: var(--green) !important;
-}
-.color-tan{
-    color: var(--background) !important;
-}
-.bg-blue{
-    background-color: var(--blue) !important;
-}
-.bg-green{
-    background-color: var(--green) !important;
-}
-.bg-orange{
-    background-color: var(--orange) !important;
-}
 .bg-pink{
     background-color: var(--pink) !important;
 }
-.bg-purple{
-    background-color: var(--purple) !important;
-}
-.bg-magenta{
-    background-color: var(--magenta) !important;
-}
+
 
 .text-color-dark{
     color: var(--text);
@@ -72,18 +37,23 @@ html{
     color: var(--background);
 }
 
-.bg-tan{
-    background-color: var(--background);
-}
 
 body{
     background-color: var(--background);
     padding-top: 54px;
 }
 
-picture, .abstract-img{
+picture, .abstract-img, img{
     width: 100%;
     height: auto;
+}
+
+.wp-block-video video {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    max-width: 1024px;
+    background-color: rgba(211, 89, 44, 0.3);
 }
 
 .row{
@@ -99,7 +69,13 @@ picture, .abstract-img{
 p{
     font-family: var(--Jost);
     font-size: 16px;
-    margin: 1rem 0;
+}
+p a, p a:hover, .post-tags a:hover, .post-tags a{
+    color: var(--orange);
+    text-decoration: underline;
+}
+footer p{
+    padding: 0;
 }
 
 h1{
@@ -110,17 +86,19 @@ h1{
     font-weight: 800;
     line-height: 10vw;
     margin: 0px;
+    text-transform: uppercase;
 }
 
 h2{
     font-family: var(--Jost);
-    font-size: 50px;
+    font-size: 4vw;
     text-align: center;
     font-style: normal;
-    font-weight: 700;
-    line-height: 50px;
-    letter-spacing: 15px;
+    font-weight: 400;
+    line-height: 5vw;
+    letter-spacing: 5px;
     margin: 20px auto;
+    text-transform: uppercase;
 }
 
 h3{
@@ -130,30 +108,49 @@ h3{
     font-style: normal;
     font-weight: 800;
     line-height: 70px;
-    margin: 0px;
-    color: var(--background);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--orange);
+    text-transform: uppercase;
 }
 
-h4, .nav-link, .dropdown-item{
+h4, .nav-link, .dropdown-item, .wp-block-button a, .post-tags{
     font-family: var(--Jost);
     font-size: 25px;
     font-style: normal;
     font-weight: 600;
     line-height: 30px;
     margin: 0px;
-    color: var(--background);
+    color: var(--blue);
     text-align: center;
+    text-transform: uppercase;
 }
 
-h5{
+.post-tags{
+    color: var(--text);
+}
+
+h4{
+    margin: 20px 0;
+}
+
+.nav-link, .dropdown-item{
+    color: var(--background);
+}
+
+.nav-link{
+    color: var(--orange) !important;
+}
+
+h5, .wp-block-table-of-contents li{
     font-family: var(--Jost);
-    font-size: 3.75vw;
-    text-align: center;
+    font-size: 24px;
+    text-align: left;
     font-style: normal;
-    font-weight: 400;
-    line-height: 3.75vw;
-    letter-spacing: 1vw;
+    font-weight: 700;
+    line-height: 22px;
     margin: 0px;
+    text-transform: uppercase;
 }
 
 h6{
@@ -161,16 +158,149 @@ h6{
     font-size: 22px;
     text-align: left;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 30px;
     margin: 0px;
+    padding: 0 2rem;
 }
+
+p, h6, ul, .post-tags{
+    margin: 1rem auto;
+    padding: 0 2rem;
+    max-width: 1000px;
+}
+
+.wp-block-columns {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+ol, ul{
+    padding-inline-start: 5vw;
+}
+
+/*TABLE OF CONTENTS*/
+
+.wp-block-table-of-contents ol{
+    list-style: none;
+    margin: 0 auto;
+    padding-inline-start: 25px;
+    width: fit-content;
+    max-width: 1000px;
+    padding: 30px 0;
+}
+
+.wp-block-table-of-contents ol li ol{
+    display: none;
+}
+
+.wp-block-table-of-contents li {
+    text-indent: -1em;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.wp-block-table-of-contents li:hover, .wp-block-table-of-contents li:active {
+    transform: scale(1.1);
+}
+
+.wp-block-table-of-contents li a{
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.wp-block-table-of-contents li:before {
+    font-family: var(--Jost);
+    content: "→";
+    border-radius: 20vw;
+    background-color: var(--orange);
+    color: var(--background);
+    font-size: 24px;
+    font-weight: 800;
+    padding: 0px 8px 4px 7px;
+    margin-right: 8px;
+    margin-top: -4px;
+}
+
+blockquote{
+    font-weight: 700;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*Buttons*/
+
+.wp-block-button a{
+    color: var(--background) !important;
+    background-color: var(--orange);
+    line-height: 20px;
+    text-decoration: none;
+}
+
+.wp-block-button{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50vw !important;
+    border: none !important;
+}
+
+.wp-block-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 5px rgba(255, 249, 238, 0.5);
+}
+.wp-block-button:active{
+    transform: scale(0.9);
+}
+
+/*Caption*/
+figcaption{
+    font-style: italic;
+    color: var(--orange);
+}
+
+
+/*Single Info*/
+
+.case-study-header{
+    width: 95%;
+    margin: 10px auto;
+}
+
+.case-study-title{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vw;
+    padding: 20vw;
+}
+
+.case-study-title div {
+    padding: 1.5vw 2.5vw;
+    background-color: rgba(211, 89, 44, 0.9);
+}
+.case-study-title div h1{
+    font-size: 8.5vw;
+    line-height: 9vw;
+}
+
+
+
+
 
 /*Medium Screens*/
 @media screen and (max-width: 782px) {
     
     body{
         padding-top: 50px;
+    }
+
+    .case-study-title{
+        height: 60vw;
+        padding: 15vw;
     }
 
 }
@@ -180,18 +310,24 @@ h6{
 
     /*GENERAL*/
     body{
-        padding-top: 0 !important;
+        padding-top: 0;
     }
 
-    h1{
+    .case-study-title{
+        height: 60vw;
+        padding: 10vw;
+    }
+
+    h1, .case-study-title div h1{
         font-size: 17vw;
         line-height: 17vw;
     }
+
     h2{
-        font-size: 9vw;
-        line-height: 9vw;
-        letter-spacing: 2vw;
+        font-size: 6vw;
+        line-height: 7vw;
     }
+    
     h3{
         font-size: 11.5vw;
         line-height: 11.5vw;
