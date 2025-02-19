@@ -476,8 +476,8 @@ button h4{
     margin: 0 !important;
 }
 
-.btn-text:hover{
-    color: var(--background) !important;
+.btn-primary:hover{
+    background-color: var(--background)!important;
 }
 .btn{
     transition: transform 0.3s ease, box-shadow 0.3s ease;

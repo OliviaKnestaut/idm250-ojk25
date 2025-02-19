@@ -29,7 +29,7 @@ $query = new WP_Query([
             <?php if (!empty($snippit)): ?>
                 <h4 class="text-center text-color-light"><?php echo $snippit; ?></h4>
             <?php endif; ?>
-            <button type="button" class="btn btn-primary mx-auto d-block purple-hover" onclick="window.location.href='letterboxd'">
+            <button type="button" class="btn btn-primary mx-auto d-block purple-hover" onclick="window.location.href='<?php the_permalink(); ?>'">
                 <h4 class="btn-text color-blue">See Project</h4>
             </button>
         </div>
