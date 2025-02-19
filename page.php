@@ -1,9 +1,20 @@
 <?php get_header(); ?>
 
-<h1>
+<h1 class="long-title text-color-orange">
     <?php 
     echo strtoupper(get_the_title());
     ?>
 </h1>
+
+<?php if (has_post_thumbnail()) : ?>
+    <div class="featured-image">
+        <?php echo the_post_thumbnail(); ?>
+    </div>
+<?php endif; ?>
+
+
+<div class="main-content">
+    <?php echo get_the_content(); ?>
+</div>
 
 <?php get_footer(); ?>

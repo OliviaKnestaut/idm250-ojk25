@@ -36,6 +36,12 @@ html{
 .text-color-light{
     color: var(--background);
 }
+.text-color-orange{
+    color: var(--orange);
+}
+.text-color-blue{
+    color: var(--blue);
+}
 
 
 body{
@@ -84,7 +90,7 @@ h1{
     text-align: center;
     font-style: normal;
     font-weight: 800;
-    line-height: 10vw;
+    line-height: 13vw;
     margin: 0px;
     text-transform: uppercase;
 }
@@ -99,6 +105,7 @@ h2{
     letter-spacing: 5px;
     margin: 20px auto;
     text-transform: uppercase;
+    color: var(--blue);
 }
 
 h3{
@@ -164,7 +171,7 @@ h6{
     padding: 0 2rem;
 }
 
-p, h6, ul, .post-tags{
+p, h6, ul, .post-tags, ol{
     margin: 1rem auto;
     padding: 0 2rem;
     max-width: 1000px;
@@ -230,11 +237,59 @@ blockquote{
     margin: 0 auto;
 }
 
+.wp-block-pullquote{
+    background-color: var(--blue);
+    padding: 1em 0;
+    margin: 10px 20px;
+}
+.wp-block-pullquote p{
+    font-family: var(--Jost);
+    font-size: 20px !important;
+    line-height: 25px !important;
+    font-style: italic;
+    font-weight: 400 !important;
+    text-align: left;
+    color: var(--background);
+}
+.wp-block-pullquote cite{
+    font-family: var(--Jost);
+    font-size: 20px !important;
+    line-height: 25px !important;
+    font-style: normal;
+    font-weight: 700 !important;
+    color: var(--background);
+}
+
+/*Table*/
+.wp-block-table{
+    margin: 20px;
+}
+
+table, th, td{
+    border: 2px;
+    border-style: solid;
+    border-color: var(--orange);
+    border-collapse: collapse;
+    padding: 4px 8px;
+    font-family: var(--Kanit);
+    color: var(--orange);
+    font-size: 16px;
+    line-height: 16px;
+    margin: auto;
+}
+th{
+    background-color: var(--orange);
+    color:var(--background);
+}
+table{
+    width: 100%;
+}
+
 /*Buttons*/
 
 .wp-block-button a{
     color: var(--background) !important;
-    background-color: var(--orange);
+    background-color: var(--green);
     line-height: 20px;
     text-decoration: none;
 }
@@ -245,12 +300,25 @@ blockquote{
     border: none !important;
 }
 
+.wp-block-buttons{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
 .wp-block-button:hover{
     transform: scale(1.1);
     box-shadow: 0 0 20px 5px rgba(255, 249, 238, 0.5);
 }
 .wp-block-button:active{
     transform: scale(0.9);
+}
+
+.wp-block-cover{
+    margin: 10px;
+    border-top-left-radius: 50vw;
+    border-top-right-radius: 50vw;
+
 }
 
 /*Caption*/
@@ -303,6 +371,11 @@ figcaption{
         padding: 15vw;
     }
 
+    h3{
+        font-size: 10vw;
+        line-height: 10vw;
+    }
+
 }
 
 /*Small Screens*/
@@ -323,15 +396,17 @@ figcaption{
         line-height: 17vw;
     }
 
+    .long-title {
+        font-size: 11vw;
+        line-height: 17vw;
+    }
+
     h2{
         font-size: 6vw;
         line-height: 7vw;
     }
     
-    h3{
-        font-size: 11.5vw;
-        line-height: 11.5vw;
-    }
+    
     h5 {
         font-size: 9vw;
         line-height: 12vw;
@@ -345,5 +420,77 @@ figcaption{
         width: 100%;
         height: auto;
         padding: 10px 0;
+    }
+}
+
+
+
+/*Home Screen Cards*/
+.card{
+    position: unset;
+    background-color: var(--background);
+    border: none;
+    margin-bottom: 1rem;
+}
+.card img {
+    width: 100% !important;
+    margin: auto;
+}
+.project-image{
+    width: 65% !important;
+}
+.card-body{
+    padding: 30px 20px;
+    padding-bottom: 120px;
+    margin-bottom: -100px;
+    background-color: var(--blue);
+}
+.card-body > h4, .snippit{
+    letter-spacing: 5px;
+    font-weight: 400;
+}
+
+.snippit{
+    font-size: 4vw;
+    line-height: 4vw;
+}
+
+.container-fluid{
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.card > div > button, .contents-flex button, .case-study-sect button, header > button {
+    border-radius: 50vw !important;
+    background-color: var(--background);
+    color: var(--blue);
+    border: none !important;
+    margin-top: 20px !important;
+}
+
+.card-body h3{
+    margin-top: 0;
+}
+
+button h4{
+    margin: 0 !important;
+}
+
+.btn-text:hover{
+    color: var(--background) !important;
+}
+.btn{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 5px rgba(255, 249, 238, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    /*HOME CARDS*/
+
+    .project-image{
+        width: 90% !important;
     }
 }
