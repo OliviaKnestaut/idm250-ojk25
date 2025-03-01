@@ -314,11 +314,10 @@ table{
     transform: scale(0.9);
 }
 
-.wp-block-cover{
+.wp-block-cover, .page-temp{
     margin: 10px;
     border-top-left-radius: 50vw;
     border-top-right-radius: 50vw;
-
 }
 
 /*Caption*/
@@ -355,6 +354,11 @@ figcaption{
     line-height: 9vw;
 }
 
+.down{
+    font-size: 9vw;
+    line-height: 9vw;
+}
+
 
 
 
@@ -369,6 +373,11 @@ figcaption{
     .case-study-title{
         height: 60vw;
         padding: 15vw;
+    }
+
+    .down{
+        font-size: 12vw;
+        line-height: 11vw;
     }
 
     h3{
@@ -391,7 +400,7 @@ figcaption{
         padding: 10vw;
     }
 
-    h1, .case-study-title div h1{
+    .down, h1, .case-study-title div h1{
         font-size: 17vw;
         line-height: 17vw;
     }
