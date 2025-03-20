@@ -25,15 +25,10 @@
             </picture>
         </div>
 
-<?php if (has_post_thumbnail()) : ?>
-    <div class="featured-image">
-        <?php echo the_post_thumbnail(); ?>
-    </div>
-<?php endif; ?>
-
-
 <div class="main-content">
     <?php get_template_part('featured-projects'); ?>
+
+</div>
 
 </div>
 

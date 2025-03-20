@@ -23,7 +23,15 @@ $snippit = isset($title_parts[1]) ? trim($title_parts[1]) : '';
                     <?php endif; ?>
                 </div>
             </div>
-            <p class="post-meta">Published on <?php the_date(); ?> in <?php the_category(', '); ?></p>
+            <p class="post-meta">Published on <?php the_date(); ?>, Project Categories: <?php echo get_the_term_list(
+                        get_the_ID(), // 204
+                        'project-categories', // taxonomy name
+                        '', // before
+                        ', ', // separator
+                        '' // after
+                ); ?></p>
+
+
             
             <div class="post-content container-fluid">
                 <?php the_content(); ?>

@@ -25,6 +25,7 @@ $snippit = isset($title_parts[1]) ? trim($title_parts[1]) : '';
             </div>
             <p class="post-meta">Published on <?php the_date(); ?> in <?php the_category(', '); ?></p>
             
+            
             <div class="post-content container-fluid">
                 <?php the_content(); ?>
             </div>

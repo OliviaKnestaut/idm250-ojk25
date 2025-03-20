@@ -43,6 +43,9 @@ html{
     color: var(--blue);
 }
 
+.post-content{
+    max-width: 1000px;
+}
 
 body{
     background-color: var(--background);
@@ -447,12 +450,16 @@ figcaption{
 }
 .project-image{
     width: 65% !important;
+    padding-bottom: 20px;
 }
 .card-body{
     padding: 30px 20px;
     padding-bottom: 120px;
     margin-bottom: -100px;
     background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .card-body > h4, .snippit{
     letter-spacing: 5px;
@@ -488,6 +495,9 @@ button h4{
 .btn-primary:hover{
     background-color: var(--background)!important;
 }
+.btn-primary {
+    background-color: var(--background) !important;
+}
 .btn{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -495,6 +505,53 @@ button h4{
     transform: scale(1.1);
     box-shadow: 0 0 20px 5px rgba(255, 249, 238, 0.5);
 }
+
+/*BLOG Card*/
+
+.blog-card {
+    background-color: var(--blue);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.blog-card:hover {
+transform: translateY(-5px);
+}
+
+.date {
+color: var(--background);
+text-align: center;
+}
+
+.excerpt {
+margin-top: 1rem;
+color: var(--background);
+}
+
+.excerpt-30 {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .excerpt-80 {
+        display: none;
+    }
+    .excerpt-30 {
+        display: block;
+    }
+    .archive-title {
+        font-size: 7.5vw;
+        line-height: 8vw;
+    }
+}
+
+.archive-title {
+    font-size: 8.5vw;
+    line-height: 8.5vw;
+}
+
 
 @media screen and (max-width: 768px) {
     /*HOME CARDS*/

@@ -17,4 +17,9 @@
     <?php echo get_the_content(); ?>
 </div>
 
+<div class="main-content">
+    <?php echo get_the_content(); ?>
+</div>
+
+
 <?php get_footer(); ?>
